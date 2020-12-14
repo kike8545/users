@@ -21,7 +21,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   public form: FormGroup;
   public IDEN_DOC_TYPES: IdenDocType[] = [];
   public USERS: User[] = [];
-  private url = 'http://localhost:8080/users/';
   resultsLength = 0;
   pageSize = 5;
   displayedColumns: string[] =

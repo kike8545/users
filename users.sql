@@ -27,13 +27,13 @@ CREATE TABLE `data_users` (
   `last_name` varchar(50) DEFAULT NULL,
   `mail` varchar(150) DEFAULT NULL,
   `identification` int(15) DEFAULT NULL,
-  `phone` int(15) DEFAULT NULL,
+  `phone` bigint(15) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `data_users` */
 
-insert  into `data_users`(`id`,`id_identity_document_type`,`first_name`,`last_name`,`mail`,`identification`,`phone`) values (1,1,'Jeremy','De Avila','jedp1026@gmail.com',1140845180,123456789);
+insert  into `data_users`(`id`,`id_identity_document_type`,`first_name`,`last_name`,`mail`,`identification`,`phone`) values (1,1,'Jeremy','De Avila','jedp1026@gmail.com',1140845180,3116905022);
 
 /*Table structure for table `identity_document_type` */
 

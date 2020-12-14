@@ -6,6 +6,7 @@
 package com.users.entities;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -25,14 +27,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "data_users", catalog = "data", schema = "")
 @XmlRootElement
 @NamedQueries({
-  @NamedQuery(name = "Users.findAll", query = "SELECT d FROM Users d"),
-  @NamedQuery(name = "Users.findById", query = "SELECT d FROM Users d WHERE d.id = :id"),
-  @NamedQuery(name = "Users.findByIdIdentityDocumentType", query = "SELECT d FROM Users d WHERE d.idIdentityDocumentType = :idIdentityDocumentType"),
-  @NamedQuery(name = "Users.findByFirstName", query = "SELECT d FROM Users d WHERE d.firstName = :firstName"),
-  @NamedQuery(name = "Users.findByLastName", query = "SELECT d FROM Users d WHERE d.lastName = :lastName"),
-  @NamedQuery(name = "Users.findByMail", query = "SELECT d FROM Users d WHERE d.mail = :mail"),
-  @NamedQuery(name = "Users.findByIdentification", query = "SELECT d FROM Users d WHERE d.identification = :identification"),
-  @NamedQuery(name = "Users.findByPhone", query = "SELECT d FROM Users d WHERE d.phone = :phone")})
+  @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
+  @NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.id = :id"),
+  @NamedQuery(name = "Users.findByIdIdentityDocumentType", query = "SELECT u FROM Users u WHERE u.idIdentityDocumentType = :idIdentityDocumentType"),
+  @NamedQuery(name = "Users.findByFirstName", query = "SELECT u FROM Users u WHERE u.firstName = :firstName"),
+  @NamedQuery(name = "Users.findByLastName", query = "SELECT u FROM Users u WHERE u.lastName = :lastName"),
+  @NamedQuery(name = "Users.findByMail", query = "SELECT u FROM Users u WHERE u.mail = :mail"),
+  @NamedQuery(name = "Users.findByIdentification", query = "SELECT u FROM Users u WHERE u.identification = :identification"),
+  @NamedQuery(name = "Users.findByPhone", query = "SELECT u FROM Users u WHERE u.phone = :phone")})
 public class Users implements Serializable {
 
   private static final long serialVersionUID = 1L;
@@ -43,16 +45,19 @@ public class Users implements Serializable {
   private Integer id;
   @Column(name = "id_identity_document_type")
   private Integer idIdentityDocumentType;
+  @Size(max = 50)
   @Column(name = "first_name")
   private String firstName;
+  @Size(max = 50)
   @Column(name = "last_name")
   private String lastName;
+  @Size(max = 150)
   @Column(name = "mail")
   private String mail;
   @Column(name = "identification")
   private Integer identification;
   @Column(name = "phone")
-  private Long phone;
+  private BigInteger phone;
 
   public Users() {
   }
@@ -109,11 +114,11 @@ public class Users implements Serializable {
     this.identification = identification;
   }
 
-  public Long getPhone() {
+  public BigInteger getPhone() {
     return phone;
   }
 
-  public void setPhone(Long phone) {
+  public void setPhone(BigInteger phone) {
     this.phone = phone;
   }
 
@@ -139,7 +144,7 @@ public class Users implements Serializable {
 
   @Override
   public String toString() {
-    return "com.users.entities.DataUsers[ id=" + id + " ]";
+    return "com.users.entities.Users[ id=" + id + " ]";
   }
   
 }
