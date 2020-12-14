@@ -1,0 +1,17 @@
+.alignCenter{
+  align-content: center;
+  text-align:  center;
+}
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 30%;
+  padding:2px;
+}
+
+td, th {
+  width: 25%;
+}
